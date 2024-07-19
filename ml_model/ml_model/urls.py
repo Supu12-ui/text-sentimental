@@ -1,7 +1,10 @@
-# myproject/urls.py
-from django.contrib import admin
-from django.urls import include, path
+# myapp/urls.py
+
+from django.urls import path, include
+
 
 urlpatterns = [
-    path('api/', include('myapp.urls')),  # Include your API URLs
+    path('api/', include('myapp.urls')),  # Include myapp-specific URLs
+    # path('ml/', include('ml_model.urls')),  # Include ml_model-specific URLs
+    # Add other paths specific to myapp
 ]

@@ -1,8 +1,10 @@
 # myapp/models.py
-import joblib
-import os
+from django.db import models
 
-class Prediction:
-    def __init__(self):
-        model_path = os.path.join(os.path.dirname(__file__), 'color_classifier.joblib')
-        self.model = joblib.load(model_path)
+class Prediction(models.Model):
+    text = models.TextField()
+    predicted_output = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.text

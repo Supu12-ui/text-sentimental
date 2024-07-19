@@ -1,7 +1,8 @@
-# text_classifier_app/urls.py
+# ml_model/urls.py
+
 from django.urls import path
 from . import views
 
 urlpatterns = [
-  path('predict/', views.predict_view, name='predict_view'),
+    path('predict/', views.predict_view, name='predict'),
 ]

@@ -11,7 +11,7 @@ def predict_view(request):
     if request.method == 'POST':
         try:
             data = json.loads(request.body.decode('utf-8'))
-            texts = data.get('text', [])
+            texts = data.get('text', '')
 
             if texts:
                 predictions = []
@@ -30,7 +30,7 @@ def predict_view(request):
                     else:
                         color = 'saffron'
 
-                    predictions.append({'prediction': color})
+                    predictions.append({'color_id': predicted_output,'prediction': color})
 
                 return JsonResponse({'predictions': predictions}, status=200)
             else:
